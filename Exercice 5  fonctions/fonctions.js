@@ -11,3 +11,5 @@ function checkName(FirstName,secondName) {
     }
 }
 console.log (result)
+
+/* console.log = afficher dans la console , alors que return affecte le resultat d'une fonction a une variable*/
