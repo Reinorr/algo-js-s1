@@ -1,16 +1,14 @@
 let a = "Jean"
 let b = "Paul"
-let result = ""
+let result = checkName (a,b)
 
 function checkName(a,b) {
-    if (a==b) {
-        result = "identiques"
+    if (a===b) {
+        return "identiques"
     }
 
     else {
-        result = "pas identiques"
+        return "pas identiques"
     }
-console.log (result)
-
 }
-checkName (a,b)
+console.log (result)
