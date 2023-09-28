@@ -21,37 +21,49 @@ class Pokemon {
             pokemon.hp -= Math.max(0, this.attack - pokemon.defense)
             pokemon.hp = Math.max(pokemon.hp, 0)
             
-            console.log(this.name + " a touché " + pokemon.name)
-            console.log(pokemon.name + " tombe a " + pokemon.hp + "PV")
+            console.log("\t" + this.name + " a touché " + pokemon.name)
+            console.log("\t" + pokemon.name + " tombe a " + pokemon.hp + "PV")
         } else {
-            console.log(this.name + " a raté " + pokemon.name + " :(")
+            console.log("\t" + this.name + " a raté " + pokemon.name + " :(")
         }
     }
 }
 
-let magicarpe = new Pokemon("Magicarpe", 75, 20, 350, 0.9);
-let garfield = new Pokemon("Garfield", 100, 15, 250, 0.5);
-let turn = 0
+function delay(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
 
-while (magicarpe.hp > 0 && garfield.hp > 0) {
-    turn++;
-    console.log("Tour " + turn)
-   
-    if (turn%2 == 0) {
-        setTimeout(() => {
-        magicarpe.attackPokemon(garfield)}
-        , 1000)
+async function main() {
+    let magicarpe = new Pokemon("Magicarpe", 75, 50, 350, 0.9);
+    let garfield = new Pokemon("Garfield", 150, 15, 250, 0.5);
+    let turn = 0
+    
+    while (magicarpe.hp > 0 && garfield.hp > 0) {
+        turn++
+    
+        console.log("Tour " + turn)
+
+        await delay(500);
+
+        if (turn%2 == 0) {
+            magicarpe.attackPokemon(garfield)
+        } else {
+    
+            garfield.attackPokemon(magicarpe)
+        }
+        
+        await delay(1000);
+        console.log("\n")
+    }
+    
+    
+    if (magicarpe.hp <= 0) {
+        console.log("Garfield a gagné")
     } else {
-        setTimeout(() => {
-        garfield.attackPokemon(magicarpe)}
-        , 1000)
+        console.log("Magicarpe a gagné")
     }
 }
 
-if (magicarpe.hp <= 0) {
-
-    console.log("Garfield a gagné")
-} else {
-
-    console.log("Magicarpe a gagné")
-}
+main()
