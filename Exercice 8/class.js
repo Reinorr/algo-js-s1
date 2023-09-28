@@ -20,43 +20,51 @@ if (gnome.pv -= Reinor.attack <= 0 {
     console.log "le gnome est mort"})
 */
 
-class pokemon{
+class Pokemon { 
     constructor(name, attack, defense, hp, luck){
-    this.name = name
-    this.attack = attack
-    this.defense = defense
-    this.hp = hp
-    this.luck = luck
+        this.name = name
+        this.attack = attack
+        this.defense = defense
+        this.hp = hp
+        this.luck = luck
     }
-}
 
-isLucky () {
-    if (Math.random() <pokemon.luck) {
-        return true
+    isLucky () {
+        return Math.random() < this.luck
+
+        // equivalent de la fonction ci dessus
+        // if (Math.random() < this.luck) {
+        //     return true
+        // }
+        // else {
+        //     return false
+        // }
     }
-    else {
-        return false
-    }
-}
-
-
-
-let Magicarpe = new pokemon ("Magicarpe", 150, 150, 150, 0.9)
-let Garfield = new pokemon ("Garfield", 75, 100, 150, 0.5)
-
-
-
-function attackPokemon (pokemon) {
-    while (pokemon1.hp>0 && pokemon2.hp>0) {
-        dmgPoke1 = pokemon1.attack - pokemon2.defense  //a
-        dmgPoke2 = pokemon2.attack - pokemon1.defense
-
-        pokemon2.pv - (pokemon1.attack - pokemon2.defense )
-        console.log (pokemon2.pv)
-
-        pokemon1.pv - (pokemon2.attack - pokemon1.defense )
-        console.log (pokemon1.pv)
+    
+    attackPokemon (pokemon) {
+        // Dans le code le "this" représente le pokemon qui attaque 
         
+        if (this.isLucky = true) {
+            // Le pokémon attaque
+            pokemon.hp -= Math.max(0, this.attack - pokemon.defense)
+            console.log(this.name + " a touché " + pokemon.name)
+        } else {
+            // Le pokemon rate
+            console.log(this.name + " a raté " + pokemon.name + " :(")
+        }
     }
 }
 
+let magicarpe = new Pokemon("Magicarpe", 75, 20, 350, 0.9)
+let garfield = new Pokemon("Garfield", 100, 15, 250, 0.5)
+
+console.log(magicarpe.hp)
+
+garfield.attackPokemon(magicarpe);
+
+console.log(magicarpe.hp)
+
+
+// while (magicarpe.hp >= 0 || garfield.hp >= 0) {
+
+// }
