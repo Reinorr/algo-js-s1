@@ -37,7 +37,9 @@ class Pokemon {
             console.log(this.name + " a raté " + pokemon.name + " :(")
         }
     }
+
 }
+
 // on déclare de nouveaux objets
 let magicarpe = new Pokemon("Magicarpe", 75, 20, 350, 0.9);
 let garfield = new Pokemon("Garfield", 100, 15, 250, 0.5);
@@ -56,6 +58,7 @@ while (magicarpe.hp > 0 && garfield.hp > 0) {
         garfield.attackPokemon(magicarpe)
     }
 }
+
 // code pour annncer le vainqueur (j'avais fait l'erreur de le mettre a l'interieur de la boucle while d'au dessus)
 if (magicarpe.hp <= 0) {
     // C'est Magicarpe qui a perdu
