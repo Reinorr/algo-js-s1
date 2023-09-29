@@ -1,5 +1,5 @@
 
-let musicList = ["Le temps des tempêtes (Sarkozy)","René la taupe","Ladybug opening (Kaaris)","Toccata y Fugue en ré mineur (Jean Sebastien Bach)","Anissa(Wejden)"]
+let musicList = ["The weekend(Michael Gray)","Les Magnolia (Claude Francois)","FTP (Masterboot Record)","Toccata y Fugue en ré mineur (Jean Sebastien Bach)","Anissa(Wejden)"]
 
 //code random numbers
 function randInt (maxmusic) {
@@ -15,26 +15,28 @@ class John {
         this.taxiChange = taxiChange
 }
    trajet() {
-    while (feuRouge < 30 && this.sanity >= 0 ) {
+    while (feuRouge < 30 && this.sanity > 0 ) {
         let music = musicList[randInt(5)]
+
         console.log (music)
         feuRouge ++
-        console.log (feuRouge + " feu rouge")
-
+        console.log (feuRouge + " feu rouges ")
+        console.log ("\n")
+        
         if (music==musicList[4]) {
-            console.log ("John viens de sauter du taxi en criant")
+            console.log ("\tJohn viens de sauter du taxi en criant")
             this.sanity -= 1
             console.log ("santé mentale : " + this.sanity)
-        
-             if (John.sanity === 0) {
-             console.log ("John en a marre, il dégoupille une grenade et maudit Wejden...")
-             break
             }
-        }
+
+         if (this.sanity === 0) {
+             console.log ("\tJohn en a marre, il dégoupille une grenade et maudit Wejden...")
+            }
+        
         
         if (feuRouge === 30) {
             console.log ("John est arrivé chez lui ! Enfin !!!")
-            break
+        
         }
 
         
